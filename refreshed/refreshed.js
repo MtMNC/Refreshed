@@ -152,7 +152,7 @@ $("#contentwrapper").click(function(){
 	}
 });
 
-$("#smalltoolboxcontainer > a").click(function(){
+$("#smalltoolboxwrapper > a").click(function(){
 	$("#smalltoolbox").animate({'width': '100%'});
 	$(this).css({'display': 'none'});
 });

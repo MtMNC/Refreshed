@@ -1,5 +1,3 @@
-@import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css") (max-width: 1000px);
-
 @font-face {
 	font-family: 'Lato';
 	font-style: normal;
@@ -31,7 +29,7 @@ body {
 	font-family: "Lato", sans-serif;
 	margin: 0;
 	background-color: #D9DBF3;
-	background-image: url("skins/refreshed/studs-tile-refreshed.png");
+	background-image: url("studs-tile-refreshed.png");
 }
 
 #header {
@@ -185,9 +183,13 @@ body {
 		left: 12em;
 	}
 	#rightbar .shower {
+		height: 48px;
 		right: 12em;
-		height: 2.5em;
-		padding-top: .5em;
+		background-image: url("mobile-icon-sprite.png");
+    	background-size: 421px 28px;
+    	background-repeat: no-repeat;
+    	background-position: 0;
+    	margin-right: 0;
 	}
 	
 #refreshed-toc {

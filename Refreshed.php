@@ -139,10 +139,7 @@ class RefreshedTemplate extends BaseTemplate {
 	</div>
 	<div id="fullwrapper">
 		<div id="leftbar">
-			<div class="shower">
-				<?php echo "<i class='icon-reorder icon-2x icon-link'></i>"; ?>
-				<i class="icon-reorder icon-2x"></i>
-			</div>
+			<div class="shower"></div>
 			<div id="userinfo">
 				<a href='javascript:;'>
 					<?php global $wgUser, $wgArticlePath;
@@ -220,14 +217,14 @@ class RefreshedTemplate extends BaseTemplate {
 					$firstAction = true;
 					foreach ( $this->data['content_actions'] as $action ){
 						if (!$firstAction) {
-							echo "<a href='" . htmlspecialchars( $action['href'] ) . "'><i class='icon-2x link-icon' id='icon-" . $action['id'] . "'></i></a>";
+							echo "<a href='" . htmlspecialchars( $action['href'] ) . "'><div class='small-icon' id='icon-" . $action['id'] . "'></div></a>";
 						} else {
 							echo NULL;
 							$firstAction = false;
 						}
 					} ?>
 				</div>
-				<a href="javascript:;"><i class="link-icon" id="icon-more"></i></a>
+				<a href="javascript:;"><div class="small-icon" id="icon-more"></div></a>
 			</div>
 			<div id="content">
 				<?php $this->html('bodytext');
