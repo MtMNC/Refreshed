@@ -4,12 +4,14 @@
 	font-weight: 300;
 	src: local('Lato Light'), local('Lato-Light'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/KT3KS9Aol4WfR6Vas8kNcg.woff) format('woff');
 }
+
 @font-face {
 	font-family: 'Lato';
 	font-style: normal;
 	font-weight: 700;
 	src: local('Lato Bold'), local('Lato-Bold'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/wkfQbvfT_02e2IWO3yYueQ.woff) format('woff');
 }
+
 @font-face {
 	font-family: 'Lato body';
 	font-style: normal;
@@ -25,10 +27,11 @@ body {
 
 #header {
 	background-color: #103ca2;
-	background-image: -moz-linear-gradient(left,#040f28 0,#103ca2 50%,#040f28 100%);
-	background-image: -webkit-gradient(linear,0% 0%,100% 0%,color-stop(0,#040f28),color-stop(50%,#103ca2),color-stop(100%,#040f28));
-	background-image: -o-linear-gradient(left,#040f28 0,#103ca2 50%,#040f28 100%);
-	background-image: -ms-linear-gradient(left,#040f28 0,#103ca2 50%,#040f28 100%);
+	background-image: -moz-linear-gradient(left, #040f28 0, #103ca2 50%, #040f28 100%);
+	background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(0, #040f28), color-stop(50%, #103ca2), color-stop(100%, #040f28));
+	background-image: -o-linear-gradient(left, #040f28 0, #103ca2 50%, #040f28 100%);
+	background-image: -ms-linear-gradient(left, #040f28 0, #103ca2 50%, #040f28 100%);
+	background-image: linear-gradient(to left, #040f28 0, #103ca2 50%, #040f28 100%);
 	-webkit-font-smoothing: antialiased;
 	width: 100%;
 	height: 3em;
@@ -43,6 +46,7 @@ body {
 	padding-left: 0.5em;
 	margin-bottom: 0.3em;
 }
+
 .scrollshadow {
 	background: none;
 }
@@ -89,12 +93,18 @@ body {
 }
 
 /*
- * Hide the list bullet icons. This is not terribly useful by default, but there
- * are extensions which can add entire portlets to the sidebar, and said portlets
- * might be using the <ul> HTML tag...
- */
-#rightbar-top li {
+* Hide the list bullet icons. This is not terribly useful by default, but there
+* are extensions which can add entire portlets to the sidebar, and said portlets
+* might be using the <ul> HTML tag...
+*/
+#rightbar li, #leftbar li {
 	list-style-type: none;
+	margin: 0;
+}
+
+#rightbar ul, #leftbar ul {
+	margin: 0;
+	padding: 0;
 }
 
 #rightbar-top {
@@ -103,96 +113,114 @@ body {
 	height: webkit-calc( 100% - 3.5em );
 	height: moz-calc( 100% - 3.5em );
 	height: calc( 100% - 3.5em );
+	left: 0px;
 }
+
 #leftbar-top, #rightbar-top {
 	position: absolute;
 	top: 3em;
+	padding-top: 8px !important;
 }
+
 #leftbar-bottom {
 	position: absolute;
 	bottom: 1em;
-}
-#leftbar-bottom {
 	border-right: 1px solid white;
 	width: 100%;
 	right: -1px;
 }
+
 #leftbar-top {
 	right: 0px;
 }
-#rightbar-top {
-	left: 0px;
-}
+
 #leftbar-main a, #rightbar-main a {
 	display: block;
 	color: white;
 	text-decoration: none;
 }
+
 #leftbar-main a {
-	padding: 0.15em 10px 0.15em 0;
+	padding-left: 10px;
 	text-align: right;
 	margin-right: 5px;
 	direction: ltr; /* ensure direction is correct, as ToC changes it */
 }
+
 #rightbar-main a {
 	text-align: left;
 	margin-left: 5px;
 }
+
 #rightbar .main {
-	padding: 0.15em 0 0.15em 10px;
+	padding-left: 10px;
 	display: block;
 	margin-top: 0.5em;
 }
+
 #rightbar .main:first-of-type {
 	margin-top: 0em;
 }
+
 #rightbar .sub {
-	padding: 0.15em 0 0.15em 20px;
+	padding-left: 20px;
 }
+
 #leftbar-main a:hover, #rightbar-main a:hover {
 	color: #CCC;
 	cursor: pointer;
 }
+
 #leftbar-main a:hover {
 	border-right: 5px solid #CCC;
 	margin-right: 0;
 }
+
 #rightbar-main a:hover {
 	border-left: 5px solid #CCC;
 	margin-left: 0;
 }
-#leftbar-top a, #rightbar-top a {
+
+#leftbar-top li, #rightbar-top li {
 	text-transform: lowercase;
 }
+
 #leftbar-top a {
-	padding: 0.15em 10px 0.15em;
+	padding-right: 10px;
 }
-#leftbar-top > a:first-of-type {
+
+#leftbar-top > li:first-of-type {
 	text-transform: none;
 }
-#leftbar-top > a:nth-of-type(3) {
+
+#leftbar-top > li:nth-of-type(3) > a {
 	margin-top: 0.5em;
 }
-#leftbar-top .selected {
+
+#leftbar-top a.selected,
+#leftbar-top .selected a {
 	border-right: 5px solid white;
 	margin-right: 0;
 }
-#leftbar-top .new {
+
+#leftbar-top a.new,
+#leftbar-top .new a {
 	color: #fdad9d;
+	border-color: #fdad9d;
 }
-#leftbar-top .new:hover {
+
+#leftbar-top a.new:hover,
+#leftbar-top .new a:hover {
 	color: #f47d64;
 	border-color: #f47d64;
 }
-#leftbar-top .new.selected {
-	border-right: 5px solid #fdad9d;
+
+#leftbar-top a.new.selected,
+#leftbar-top .new.selected a {
+	color: #fdad9d;
+	border-color: #fdad9d;
 }
-#leftbar-top {
-	padding-top: 8px;
-}
-#rightbar-top {
-	padding-top: 8px;
-}
+
 #toolbox {
 	right: 0;
 	z-index: 3;
@@ -207,6 +235,7 @@ body {
 	height: 3em;
 	cursor: pointer;
 }
+
 #rightbar .shower {
 	right: 12.5em;
 	width: 48px;
@@ -214,9 +243,11 @@ body {
 	background: url("images/icon-rightbar.png") top left no-repeat;
 	background-size: 48px 48px;
 }
+
 #refreshed-toc {
 	position: relative;
 }
+
 #toc-box {
 	width: 5px;
 	background-color: white;
@@ -224,18 +255,29 @@ body {
 	position: absolute;
 	right: 0;
 }
+
+#leftbar-bottom a {
+	padding-right: 10px;
+	padding-top: 0.15em;
+	padding-bottom: 0.15em;
+}
+
 a.toclevel-2 {
 	padding-right: 20px !important;
 }
+
 a.toclevel-3 {
 	padding-right: 30px !important;
 }
+
 a.toclevel-4 {
 	padding-right: 40px !important;
 }
+
 a.toclevel-5 {
 	padding-right: 50px !important;
 }
+
 a.toclevel-6 {
 	padding-right: 60px !important;
 }
@@ -244,6 +286,7 @@ a.toclevel-6 {
 	position: relative;
 	float: left;
 }
+
 #userinfo > a {
 	display: block;
 	padding: 0.5em;
@@ -255,13 +298,16 @@ a.toclevel-6 {
 	overflow-x: hidden;
 	text-overflow: ellipsis;
 }
+
 #userinfo > a:hover {
 	background-color: midnightblue;
 	color: #CCC;
 }
+
 #userinfo .avatar-none {
 	display: none;
 }
+
 #userinfo > a span {
 	display: block;
 	margin-top: 0.1em;
@@ -270,44 +316,51 @@ a.toclevel-6 {
 	padding-right: 10px;
 	margin-left: 3.5em;
 }
+
 #username-avatar-none {
 	margin-left: 1.75em !important;
 }
+
 #userinfo .arrow {
 	position: absolute;
 	left: 1em;
 	top: 1.2em;
 	vertical-align: text-bottom;
 }
+
 #toolbox-link {
 	margin-top: 0.5em;
 }
+
 #toolbox-link .arrow {
 	vertical-align: 2px;
 }
+
 #userinfo .arrow, #toolbox-link .arrow {
 	-webkit-transition: -webkit-transform 0.5s; /* Safari */
 	-moz-transition: -moz-transform 0.5s; /* Firefox */
 	-ms-transition: -ms-trasform 0.5s; /* IE */
 	transition: transform 0.5s;
+
 	-webkit-transform: rotateZ(0deg); /* Safari */
 	-moz-transform: rotateZ(0deg); /* Firefox */
 	-ms-transform: rotateZ(0deg); /* IE */
 	transform: rotateZ(0deg);
-
 }
+
 #userinfo .arrow.rotate, #toolbox-link .arrow.rotate {
 	-webkit-transform: rotateZ(-180deg); /* Safari */
 	-moz-transform: rotateZ(-180deg); /* Firefox */
 	-ms-transform: rotateZ(-180deg); /* IE */
 	transform: rotateZ(-180deg);
-
 }
+
 #userinfo .avatar {
 	position: absolute;
 	left: 2.5em;
 	width: 30px;
 }
+
 #toolbox-link .no-show {
 	display: none;
 }
@@ -317,38 +370,46 @@ a.toclevel-6 {
 	margin: 0;
 	z-index: 4;
 }
+
 #userinfo .headermenu {
 	background-color: rgb(25, 25, 112);
 	background-color: rgba(25, 25, 112, 0.8);
 }
+
 #siteinfo .headermenu {
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.8);
 }
+
 .headermenu a {
-	font-size: 15pt;
+	font-size: 14pt;
 	text-decoration: none;
 	display: block;
 	color: white;
 	padding: 0.2em 0.4em 0.2em 0.4em;
 }
+
 .headermenu a:hover {
 	opacity: 1;
 	background-color: midnightblue;
 	text-decoration: none;
 }
+
 .headermenu .new {
 	color: #fdad9d !important;
 }
+
 #userinfo .headermenu {
 	left: 1em;
-	width: 10.6em;
+	width: 11em;
 	position: absolute;
 }
+
 #userinfo .headermenu a {
 	padding-right: 0.7em !important;
 	text-align: right;
 }
+
 #siteinfo .headermenu {
 	margin: auto;
 	width: 200px;
@@ -361,38 +422,45 @@ a.toclevel-6 {
 	width: 11em;
 	padding: 0.5em 1em 0.5em 1em;
 }
+
 #siteinfo > a:hover {
 	background-color: #222;
 }
+
 #siteinfo > a > img {
 	display: inline-block;
 }
+
 #siteinfo > a > span {
 	font-size: 15pt;
 	color: white;
 }
+
 #siteinfo a {
 	text-align: center;
 }
+
 #siteinfo .arrow {
 	-webkit-transition: -webkit-transform .5s; /* Safari */
 	-moz-transition: -moz-tranform .5s; /* Firefox */
 	-ms-transition: -ms-transform .5s; /* IE */
 	transition: transform .5s;
+
 	-webkit-transform: rotateZ(0deg); /* Safari */
 	-moz-transform: rotateZ(0deg); /* Firefox */
 	-ms-transform: rotateZ(0deg); /* IE */
 	transform: rotateZ(0deg);
+
 	vertical-align: middle;
 	margin-left: 1em;
 	display: inline-block;
 }
+
 #siteinfo .arrow.rotate {
 	-webkit-transform: rotateZ(180deg); /* Safari */
 	-moz-transform: rotateZ(180deg);  /* Firefox */
 	-ms-transform: rotateZ(180deg); /* IE */
 	transform: rotateZ(180deg);
-
 }
 
 #search {
@@ -402,6 +470,7 @@ a.toclevel-6 {
 	right: 0;
 	padding: 0.5em;
 }
+
 #search input {
 	float: right;
 	border: none;
@@ -419,9 +488,11 @@ a.toclevel-6 {
 #preftoc li {
 	display: inline;
 }
+
 #preftoc li:before {
 	content: " - ";
 }
+
 #preftoc li:first-child:before {
 	content: none !important;
 }
@@ -433,18 +504,23 @@ a.toclevel-6 {
 	padding-bottom: 15px;
 	color: #ccc;
 }
+
 #footer a {
 	color: white;
 }
+
 #footer * {
 	line-height: 1.5
 }
+
 #footer img {
 	vertical-align: text-top;
 }
+
 #footer #advert {
 	margin-bottom: 1em; /* enough spacing after ad */
 }
+
 #footer #advert p {
 	margin: 0;
 }
@@ -472,9 +548,11 @@ h6 {
 	position: static !important;
 	float: right;
 }
+
 .mw-search-formheader {
 	border: none !important;
 }
+
 #search input#searchText {
 	border: 1px solid #CCC !important
 }
@@ -503,35 +581,41 @@ h6 {
 	background: url(../../monobook/external-ltr.png) center right no-repeat;
 	padding-right: 13px;
 }
+
 #content a.external[href ^="https://"],
 .link-https {
 	/* @embed */
 	background: url(../../monobook/lock_icon.gif) center right no-repeat;
 	padding-right: 16px;
 }
+
 #content a.external[href ^="mailto:"],
 .link-mailto {
 	/* @embed */
 	background: url(../../monobook/mail_icon.gif) center right no-repeat;
 	padding-right: 18px;
 }
+
 #content a.external[href ^="news://"] {
 	/* @embed */
 	background: url(../../monobook/news_icon.png) center right no-repeat;
 	padding-right: 18px;
 }
+
 #content a.external[href ^="ftp://"],
 .link-ftp {
 	/* @embed */
 	background: url(../../monobook/file_icon.gif) center right no-repeat;
 	padding-right: 18px;
 }
+
 #content a.external[href ^="irc://"],
 .link-irc {
 	/* @embed */
 	background: url(../../monobook/discussionitem_icon.gif) center right no-repeat;
 	padding-right: 18px;
 }
+
 #content a.external[href $=".ogg"], #content a.external[href $=".OGG"],
 #content a.external[href $=".mid"], #content a.external[href $=".MID"],
 #content a.external[href $=".midi"], #content a.external[href $=".MIDI"],
@@ -543,6 +627,7 @@ h6 {
 	background: url("../../monobook/audio.png") center right no-repeat;
 	padding-right: 13px;
 }
+
 #content a.external[href $=".ogm"], #content a.external[href $=".OGM"],
 #content a.external[href $=".avi"], #content a.external[href $=".AVI"],
 #content a.external[href $=".mpeg"], #content a.external[href $=".MPEG"],
@@ -552,6 +637,7 @@ h6 {
 	background: url("../../monobook/video.png") center right no-repeat;
 	padding-right: 13px;
 }
+
 #content a.external[href $=".pdf"], #content a.external[href $=".PDF"],
 #content a.external[href *=".pdf#"], #content a.external[href *=".PDF#"],
 #content a.external[href *=".pdf?"], #content a.external[href *=".PDF?"],
@@ -580,9 +666,11 @@ h6 {
 	-webkit-text-shadow: none !important;
 	-moz-text-shadow: none !important;
 	text-shadow: none !important;
+
 	-webkit-border-radius: 0px !important;
 	-moz-border-radius: 0px !important;
 	border-radius: 0px !important;
+
 	-webkit-box-shadow: none !important;
 	-moz-box-shadow: none !important;
 	box-shadow: none !important;
